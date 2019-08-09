@@ -2,19 +2,19 @@ import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css'
 
-const MealCard = ( props ) => {
+const MealCard = ({ name, course, technique }) => {
   return (
     <Card>
       <Card.Content>
         <Icon name='food' />
         <Card.Header >
-          <p data-testid='mealName'>{props.name}</p>
+          <p data-testid='mealName'>{name}</p>
         </Card.Header>
         <Card.Meta>
-          <p>{props.course}</p>
+          <p>{course}</p>
         </Card.Meta>
         <Card.Description>
-          <p>{props.technique}</p>
+          <p>{technique}</p>
         </Card.Description>
       </Card.Content>
     </Card>

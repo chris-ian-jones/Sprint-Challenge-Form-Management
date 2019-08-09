@@ -33,6 +33,8 @@ const StyledErrorMessages = styled.p`
 const RegistrationForm = ({ values, errors, touched, status }) => {
   const [data, setData] = useState([])
 
+  // if form status is true, use setstate hook to update state of data, useeffect hook ensures no infinate loop
+  // will then map over 'data' sending data as props to MealCard component to be displayed
   useEffect(() => {
     if (status) {
       setData(status)
@@ -72,12 +74,13 @@ const FormikRegistrationForm = withFormik({
   }),
 
   handleSubmit(values, { setStatus }) {
-    console.log(values)
+    // console.log(values)
     axios
       .post('http://localhost:5000/api/register', values)
       .then(res => {
         console.log('API call good: ', res.data)
 
+        // if user successfully signs up, make a call to restricted data, and store the result in form state using setstatus
         axios.get('http://localhost:5000/api/restricted/data')
         .then(res => {
           console.log('API get is good :', res.data)

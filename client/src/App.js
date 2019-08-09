@@ -17,6 +17,7 @@ const StyledTitle = styled.h1`
   margin: 0 0 40px 0;
 `
 
+// use of class component
 class App extends React.Component {
   constructor() {
     super()

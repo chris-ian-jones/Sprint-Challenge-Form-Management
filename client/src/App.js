@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <p>placeholder app</p>
+        <h2>Registration Form</h2>
         <FormikRegistrationForm />
       </div>
     );

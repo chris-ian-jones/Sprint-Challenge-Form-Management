@@ -9,3 +9,10 @@ it('(FormikRegistrationForm) renders without crashing', () => {
   ReactDOM.render(<FormikRegistrationForm />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+// it('Username error message is displayed if no username is submitted when sign up button is pressed', () => {
+//   const formikUsernameErrorMessage = 'Username is required'
+//   const { getByTestId } = render(<FormikRegistrationForm />)
+//   fireEvent.click(getByTestId('formSubmitButton'))
+//   expect(getByTestId('usernameErrorMessage').textContent).toBe(formikUsernameErrorMessage)
+// })

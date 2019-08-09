@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import FormikRegistrationForm from './RegistrationForm'
 
 class App extends React.Component {
   constructor() {
@@ -10,6 +11,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <p>placeholder app</p>
+        <FormikRegistrationForm />
       </div>
     );
   }

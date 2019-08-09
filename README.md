@@ -26,13 +26,25 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What are the required parts of class components?
 
+Creedence Clearwater Revival = CCR! Declare the class component by extending the React.Component parent class, then setup the constructor method - where we setup our ‘state’., need to call ’super()’ so we have access to ‘this’.  Then need to ‘render()’ where we return JSX UI to the DOM.
+
 - [ ] Name at least three lifecycle methods?
+
+* render()
+* componentDidMount()
+* componentDidUpdate()
 
 - [ ] Why are forms used so often in web applications and software?
 
+Data has become one of the worlds most valuable commodities, as such the flow of it is important. Forms are one of the most common methods to gather and manage data from a web applications users, forms make communication possible between an app and its users.
+
 - [ ] What advantages are there by using a forms library like Formik?
 
+A forms library like Formik has built in functionality which does a lot of the heavy lifting for us when implementing forms. For example Formik handles the from state for us, makes it easier to setup validation and error messages, as well as simplifies the handling of the form submission process. It allows us to write less code and keep things DRY.
+
 - [ ] Why do we write tests for our apps?
+
+Testing is vital to ensure our apps behave as they should do, writing tests allows us to automate the testing strategy and check for user edge cases, which overall saves us time and money. Testing allows us to spot bugs faster, acts as a safety net when we go to refactor our code, the tests should not need to change. Testing can also act as a form of documentation for our code, while examining the tests, a developer should understand what the tested code is trying to achieve.
 
 ## Project Set Up
 

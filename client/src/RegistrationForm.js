@@ -7,7 +7,11 @@ function RegistrationForm({ values, errors, touched }) {
     <Form>
       <Field type="username" name='username' placeholder='Username' />
       <Field type='password' name='password' placeholder='Password' />
-      <button>Sign Up</button>
+      <button type='submit'>Sign Up</button>
+      <div>
+        {touched.username && errors.username && <p>{errors.username}</p>}
+        {touched.password && errors.password && <p>{errors.password}</p>}
+      </div>
     </Form>
   )
 }
@@ -19,6 +23,11 @@ const FormikRegistrationForm = withFormik({
       password: password || ''
     }
   },
+
+  validationSchema: Yup.object().shape({
+    username: Yup.string().required('Username is required'),
+    password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required')
+  }),
 
   handleSubmit(values) {
     console.log(values)

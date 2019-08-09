@@ -14,12 +14,10 @@ const CardContainer = styled.div`
   align-items: baseline;
   flex-wrap: wrap;
 `
-
 const StyledField = styled(Field)`
   height: 40px;
   width: 200px;
 `
-
 const StyledButton = styled.button`
   height: 40px;
   width: 100px;
@@ -27,7 +25,6 @@ const StyledButton = styled.button`
   color: white;
   margin-bottom: 10px;
 `
-
 const StyledErrorMessages = styled.p`
   color: red;
   margin-top: 20px;
@@ -39,7 +36,7 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
   useEffect(() => {
     if (status) {
       setData(status)
-      console.log(data)
+      // console.log(data)
     }
   }, [status])
 
@@ -87,7 +84,6 @@ const FormikRegistrationForm = withFormik({
           setStatus(res.data)
         })
       })
-      
       .catch(err => console.log('Axios error: ', err))
   }
 })(RegistrationForm)

@@ -3,6 +3,11 @@ import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 import MealCard from './MealCard';
+import styled from 'styled-components'
+
+const StyledErrorMessages = styled.p`
+  color: red;
+`
 
 const RegistrationForm = ({ values, errors, touched, status }) => {
   const [data, setData] = useState([])
@@ -21,8 +26,8 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
         <Field type='password' name='password' placeholder='Password' />
         <button type='submit' data-testid='formSubmitButton'>Sign Up</button>
         <div data-test-id='error-messages'>
-          {touched.username && errors.username && <p data-testid='usernameErrorMessage'>{errors.username}</p>}
-          {touched.password && errors.password && <p>{errors.password}</p>}
+          {touched.username && errors.username && <StyledErrorMessages data-testid='usernameErrorMessage'>{errors.username}</StyledErrorMessages>}
+          {touched.password && errors.password && <StyledErrorMessages>{errors.password}</StyledErrorMessages>}
         </div>
       </Form>
       {data.map(meal => <MealCard key={meal.name} name={meal.name} course={meal.course} technique={meal.technique}/>)}

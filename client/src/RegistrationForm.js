@@ -5,8 +5,32 @@ import axios from 'axios'
 import MealCard from './MealCard';
 import styled from 'styled-components'
 
+const CardContainer = styled.div`
+  width: 90vw;
+  margin: 40px 5vw 0 5vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  flex-wrap: wrap;
+`
+
+const StyledField = styled(Field)`
+  height: 40px;
+  width: 200px;
+`
+
+const StyledButton = styled.button`
+  height: 40px;
+  width: 100px;
+  background-color: green;
+  color: white;
+  margin-bottom: 10px;
+`
+
 const StyledErrorMessages = styled.p`
   color: red;
+  margin-top: 20px;
 `
 
 const RegistrationForm = ({ values, errors, touched, status }) => {
@@ -22,16 +46,17 @@ const RegistrationForm = ({ values, errors, touched, status }) => {
   return (
     <>
       <Form>
-        <Field type="username" name='username' placeholder='Username' />
-        <Field type='password' name='password' placeholder='Password' />
-        <button type='submit' data-testid='formSubmitButton'>Sign Up</button>
+        <StyledField type="username" name='username' placeholder='Username' />
+        <StyledField type='password' name='password' placeholder='Password' />
+        <StyledButton type='submit' data-testid='formSubmitButton'>Sign Up</StyledButton>
         <div data-test-id='error-messages'>
           {touched.username && errors.username && <StyledErrorMessages data-testid='usernameErrorMessage'>{errors.username}</StyledErrorMessages>}
           {touched.password && errors.password && <StyledErrorMessages>{errors.password}</StyledErrorMessages>}
         </div>
       </Form>
-      {data.map(meal => <MealCard key={meal.name} name={meal.name} course={meal.course} technique={meal.technique}/>)}
-      <MealCard />
+      <CardContainer>
+        {data.map(meal => <MealCard key={meal.name} name={meal.name} course={meal.course} technique={meal.technique}/>)}
+      </CardContainer>
     </>
   )
 }

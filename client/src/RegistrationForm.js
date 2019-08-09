@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
+import axios from 'axios'
 
-function RegistrationForm({ values, errors, touched }) {
+const RegistrationForm = ({ values, errors, touched, status }) => {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    if (status) {
+      setData([status])
+      console.log(data)
+    }
+  }, [status])
+
   return (
     <Form>
       <Field type="username" name='username' placeholder='Username' />
@@ -29,8 +39,21 @@ const FormikRegistrationForm = withFormik({
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required')
   }),
 
-  handleSubmit(values) {
+  handleSubmit(values, { setStatus }) {
     console.log(values)
+    axios
+      .post('http://localhost:5000/api/register', values)
+      .then(res => {
+        console.log('API call good: ', res.data)
+
+        axios.get('http://localhost:5000/api/restricted/data')
+        .then(res => {
+          console.log('API get is good :', res.data)
+          setStatus(res.data)
+        })
+      })
+      
+      .catch(err => console.log('Axios error: ', err))
   }
 })(RegistrationForm)
 

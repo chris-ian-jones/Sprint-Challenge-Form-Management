@@ -33,7 +33,7 @@ const StyledErrorMessages = styled.p`
 const RegistrationForm = ({ values, errors, touched, status }) => {
   const [data, setData] = useState([])
 
-  // if form status is true, use setstate hook to update state of data, useeffect hook ensures no infinate loop
+  // if form status is true, use usestate hook to update state of data, useeffect hook ensures no infinate loop
   // will then map over 'data' sending data as props to MealCard component to be displayed
   useEffect(() => {
     if (status) {

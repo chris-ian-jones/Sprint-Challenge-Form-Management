@@ -18,9 +18,9 @@ const FormikRegistrationForm = withFormik({
       username: username || '',
       password: password || ''
     }
-  }
+  },
 
-  handleSubmit() {
+  handleSubmit(values) {
     console.log(values)
   }
 })(RegistrationForm)
